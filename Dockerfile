@@ -4,6 +4,8 @@ FROM caddy:${CADDY_VERSION}-builder AS builder
 
 # Build Caddy with the Cloudflare DNS module
 RUN xcaddy build \
+    --with github.com/porech/caddy-maxmind-geolocation \
+    --with github.com/mholt/caddy-dynamicdns \
     --with github.com/caddy-dns/cloudflare
 
 # Final stage
